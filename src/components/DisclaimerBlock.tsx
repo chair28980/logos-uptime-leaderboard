@@ -14,9 +14,9 @@ export default function DisclaimerBlock() {
         uptime is the count of distinct hours it appeared in over the window.
         Peer IPs are geo-tagged via{" "}
         <ExternalLink href="https://ip-api.com">ip-api.com</ExternalLink>. The
-        generation scripts live in{" "}
+        generation scripts live at{" "}
         <ExternalLink href="https://github.com/tonicaginlinsky/logos-uptime-leaderboard/tree/main/scripts">
-          scripts/
+          github.com/tonicaginlinsky/logos-uptime-leaderboard/tree/main/scripts
         </ExternalLink>
         .
       </p>
