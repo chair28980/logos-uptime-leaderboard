@@ -80,7 +80,6 @@ export default function LeaderboardClient({
                 <th className="pb-3 text-left font-medium tabular-nums">
                   Nodes
                 </th>
-                <th className="pb-3 text-left font-medium">Gold (100%)</th>
                 <th className="pb-3 text-left font-medium tabular-nums">
                   Total Hours
                 </th>

@@ -12,14 +12,6 @@ interface CountryRowProps {
   layout: "table" | "card";
 }
 
-function GoldStat({ count }: { count: number }) {
-  return (
-    <span className="text-yellow text-xs font-medium">
-      {count} gold
-    </span>
-  );
-}
-
 export default function CountryRowComponent({
   row,
   expanded,
@@ -70,7 +62,6 @@ export default function CountryRowComponent({
                   {formatUptime(row.averageUptimePct)}
                 </span>
               </span>
-              <GoldStat count={row.goldCount} />
               <span className="text-muted text-xs">
                 Hours:{" "}
                 <span className="text-cream tabular-nums">
@@ -136,9 +127,6 @@ export default function CountryRowComponent({
         <td className="py-3 align-middle tabular-nums text-sm text-cream">
           {row.nodeCount}
         </td>
-        <td className="py-3 align-middle max-lg:hidden">
-          <GoldStat count={row.goldCount} />
-        </td>
         <td className="py-3 align-middle tabular-nums text-sm text-cream">
           {formatHours(row.totalHours)}
         </td>
@@ -148,12 +136,8 @@ export default function CountryRowComponent({
       </tr>
       {expanded && (
         <tr className="bg-bg-elevated border-b border-green/10">
-          <td colSpan={7} className="p-0">
+          <td colSpan={6} className="p-0">
             <div className="px-4 pb-3">
-              {/* Gold stat strip for tablet when column is hidden */}
-              <div className="lg:hidden flex gap-4 py-2 text-xs text-muted border-b border-green/10 mb-2">
-                <GoldStat count={row.goldCount} />
-              </div>
               {row.peers.slice(0, 20).map((peer, i) => (
                 <PeerSubRow key={peer.peerId + i} peer={peer} />
               ))}

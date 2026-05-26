@@ -29,7 +29,6 @@ export interface CountryRow {
   countryName: string;
   flag: string | null;
   nodeCount: number;
-  goldCount: number;
   totalHours: number;
   averageUptimePct: number;
   topNode: PeerRow;
@@ -256,7 +255,6 @@ export function aggregateByCountry(rows: PeerRow[]): CountryRow[] {
     });
 
     const totalHours = peers.reduce((sum, p) => sum + p.hours, 0);
-    const goldCount = peers.filter((p) => p.uptimePct >= 100.0).length;
     const averageUptimePct =
       peers.reduce((sum, p) => sum + p.uptimePct, 0) / peers.length;
 
@@ -266,7 +264,6 @@ export function aggregateByCountry(rows: PeerRow[]): CountryRow[] {
       countryName: isUnknown ? "Unknown" : firstPeer.countryName,
       flag: isUnknown ? null : firstPeer.flag,
       nodeCount: peers.length,
-      goldCount,
       totalHours,
       averageUptimePct,
       topNode: getTopNode(peers),
